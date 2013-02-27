@@ -9,14 +9,14 @@
 # See http://railsapps.github.com/rails-environment-variables.html
 puts 'CREATING ROLES'
 Role.create([
-  { :name => 'admin' }, 
-  { :name => 'user' }, 
-  { :name => 'VIP' }
-], :without_protection => true)
+	{ :name => 'admin' }, 
+	{ :name => 'student' }, 
+	{ :name => 'teacher' },
+	{ :name => 'ta' },
+	{ :name => 'designer' }
+	], :without_protection => true)
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'pleaseplease', :password_confirmation => 'pleaseplease'
-puts 'New user created: ' << user.name
-user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'pleaseplease', :password_confirmation => 'pleaseplease'
-puts 'New user created: ' << user2.name
+user = User.create! :name => 'Administrator', :email => 'admin@admin.com', :password => 'Admin123$', :password_confirmation => 'Admin123$'
+puts 'User created: ' << user.name
+
 user.add_role :admin
-user2.add_role :VIP
